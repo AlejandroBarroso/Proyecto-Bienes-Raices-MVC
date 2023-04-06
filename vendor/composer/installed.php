@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'alejandro/bienesraices',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '174325318baf0ae326ec7dc8a99458357a232120',
         'type' => 'proyect',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'alejandro/bienesraices' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '174325318baf0ae326ec7dc8a99458357a232120',
             'type' => 'proyect',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -53,9 +53,9 @@
             ),
         ),
         'psr/http-message' => array(
-            'pretty_version' => '1.0.1',
-            'version' => '1.0.1.0',
-            'reference' => 'f6561bf28d520154e4b0ec72be95418abe6d9363',
+            'pretty_version' => '1.1',
+            'version' => '1.1.0.0',
+            'reference' => 'cb6ce4845ce34a8ad9e68117c10ee90a29919eba',
             'type' => 'library',
             'install_path' => __DIR__ . '/../psr/http-message',
             'aliases' => array(),
