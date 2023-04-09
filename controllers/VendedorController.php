@@ -11,19 +11,16 @@ class VendedorController {
         $vendedor = new Vendedor;
 
         if ($_SERVER["REQUEST_METHOD"] === 'POST') {
-            // Crear una nueva instancia
+                // Crear una nueva instancia
            $vendedor = new Vendedor($_POST['vendedor']);
-        
-            // Validar que no hay campos vacios
+                // Validar que no hay campos vacios
            $errores = $vendedor->validar();
-        
-           // No hay errores
+                // No hay errores
            if(empty($errores)) {
             $vendedor->guardar();
            }
-        
         }
-
+            // Pasa a la vista
         $router->render('vendedores/crear', [
             'errores' => $errores,
             'vendedor' => $vendedor
@@ -34,21 +31,16 @@ class VendedorController {
         $errores = Vendedor::getErrores();
 
         $id = validarORedireccionar('/admin');
-
         // Obtener datos del vendedor a actualizar
         $vendedor = Vendedor::find($id);
-
         if ($_SERVER["REQUEST_METHOD"] === 'POST') {
-
-            // asignar los valores
+              // asignar los valores
             $args = $_POST['vendedor'];
-        
-        // sincronizar el objeto en memoria con lo que el usuario escribio
+                // sincronizar el objeto en memoria con lo que el usuario escribio
             $vendedor->sincronizar($args);   
-           
-            // Validacion 
+                // Validacion 
             $errores = $vendedor->validar();
-      
+
             if(empty($errores)) {
                 $vendedor->guardar();
             }
@@ -56,21 +48,18 @@ class VendedorController {
         $router->render('vendedores/actualizar', [
             'errores' => $errores,
             'vendedor' => $vendedor
-
         ]);
     }
 
     public static function eliminar() {   // Eliminar no precisa de Router pq no tiene vista - render es un metodo de router
        if($_SERVER['REQUEST_METHOD'] === 'POST') {
-
                 // valida el id
             $id = $_POST['id'];
             $id = filter_var($id, FILTER_VALIDATE_INT);
-
             if($id) {
-                    // Valida el tipo a eliminar
+                   // Valida el tipo a eliminar
                 $tipo = $_POST['tipo'];
-            
+  
                 if(validarTipoContenido($tipo)) {
                     $vendedor = Vendedor::find($id);
                     $vendedor->eliminar();

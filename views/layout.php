@@ -1,5 +1,5 @@
 <?php
-if (!isset($_SESSION)) {     //re visa si no hay sesion iniciada
+if (!isset($_SESSION)) {     //revisa si no hay sesion iniciada
     session_start();
 }
 $auth = $_SESSION['login'] ?? false;
@@ -25,7 +25,7 @@ if(!isset($inicio)) {
     <header class="header <?php echo $inicio ? "inicio" : ""; ?> ">
         <div class="contenedor contenido-header">
             <div class="barra">
-                <a href="/index.php">
+                <a href="/index">
                     <img src="/build/img/logo.svg" alt="logotipo de la empresa de bienes raices">
                 </a>
 
@@ -36,17 +36,17 @@ if(!isset($inicio)) {
                 <div class="derecha">
                     <img class="dark-mode-boton" src="/build/img/dark-mode.svg">
                     <nav class="navegacion">
-                        <a href="nosotros.php">Nosotros</a>
-                        <a href="anuncios.php">Anuncios</a>
-                        <a href="blog.php">Blog</a>
-                        <a href="contacto.php">Contacto</a>
+                        <a href="/nosotros">Nosotros</a>
+                        <a href="/propiedades">Anuncios</a>
+                        <a href="/blog">Blog</a>
+                        <a href="/contacto">Contacto</a>
 
-                        <?php if (!$auth) : ?>
-                            <a href="login.php">Iniciar Sesion</a>
-                        <?php endif; ?>
+                        <!-- <?php if (!$auth) : ?>
+                            <a href="/login">Administrador</a>
+                        <?php endif; ?> -->
 
                         <?php if ($auth) : ?>
-                            <a href="cerrar-sesion.php">Cerrar Sesión</a>
+                            <a href="/cerrar-sesion">Cerrar Sesión</a>
                         <?php endif; ?>
                     </nav>
                 </div>
