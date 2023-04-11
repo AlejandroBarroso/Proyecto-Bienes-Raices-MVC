@@ -39,37 +39,28 @@ class Router {
             $fn = $this->rutasPOST[$urlActual] ?? null;
         }
 
-            // Proyeger las rutas
+            // Proteger las rutas
         if(in_array($urlActual, $rutas_protegias) && !$auth) {
             header('Location: index');
         }
 
-
         if($fn) {
             // La URL existe y tiene una funcion asociada
          call_user_func($fn, $this);
-
         } else {
             echo 'Pagina no encontrada';
         }
    }
 
    // Muestar una vista
-
    public function render($view, $datos = [] ) {
 
     foreach($datos as $key => $value) {
         $$key = $value;
     }
-
         ob_start();  // Almacena en memoria un momento
-
         include __DIR__ . "/views/$view.php";
-
         $contenido = ob_get_clean(); // Limpia el buffer
-
         include __DIR__ . "/views/layout.php";
    }
-
-
 }

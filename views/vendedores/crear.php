@@ -9,7 +9,7 @@
         </div>
     <?php endforeach; ?>
 
-    <form class="formulario" method="POST" > // action="/vendedores/crear" sacando el action me funciono eliminar un vendedor
+    <form class="formulario" method="POST" action="/vendedores/crear" > 
       <?php include 'formulario.php'; ?>
         <input type="submit" value="Registrar Vendedor/a" class="boton boton-verde">
         
